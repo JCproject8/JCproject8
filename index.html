@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ProCryptomancer</title>
   <style>
     body {
@@ -56,121 +56,117 @@
   </style>
 </head>
 <body>
-  <div style="text-align: right; padding: 10px;">
-    <select onchange="changeLanguage(this.value)">
-      <option value="en" selected>English</option>
-      <option value="fr">Français</option>
-    </select>
+<div style="text-align: right; padding: 10px;">
+  <select onchange="changeLanguage(this.value)">
+    <option value="en" selected>English</option>
+    <option value="fr">Français</option>
+  </select>
+</div>
+
+<header>
+  <h1 id="welcome">Welcome to ProCryptomancer</h1>
+  <nav>
+    <a href="#services" id="services">Services</a>
+    <a href="#shop" id="shop">Shop</a>
+    <a href="#crypto" id="crypto">Crypto</a>
+    <a href="#ai" id="ai">AI</a>
+    <a href="#contact" id="contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Le futur de la crypto commence ici</h2>
+  <p>Conseils, formations et accompagnement personnalisé.</p>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Nos Services</h2>
+  <ul>
+    <li>Consultation stratégique en crypto</li>
+    <li>Formation pour débutants et experts</li>
+    <li>Support personnalisé</li>
+  </ul>
+</section>
+
+<section id="crypto">
+  <h2 class="section-title">Marché Crypto en Direct</h2>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <iframe 
+      src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=1&pref_coin_id=1505" 
+      width="100%" 
+      height="468px" 
+      scrolling="auto" 
+      frameborder="0" 
+      style="border:0; margin:0; padding:0;">
+    </iframe>
   </div>
+  <div style="display: flex; justify-content: center; gap: 20px;">
+    <button style="padding: 10px 20px; background-color: #007bff; border: none; color: white; font-weight: bold; border-radius: 5px;">
+      Achat/Vente
+    </button>
+    <button style="padding: 10px 20px; background-color: #6c757d; border: none; color: white; font-weight: bold; border-radius: 5px;">
+      Transférer
+    </button>
+  </div>
+</section>
 
-  <header>
-    <h1 id="welcome">Welcome to ProCryptomancer</h1>
-    <nav>
-      <a href="#services" id="services">Services</a>
-      <a href="#boutique" id="shop">Shop</a>
-      <a href="#crypto" id="crypto">Crypto</a>
-      <a href="#ia" id="ai">AI</a>
-      <a href="#contact" id="contact">Contact</a>
-    </nav>
-  </header>
+<section id="shop">
+  <h2 class="section-title">Nos ebooks à découvrir</h2>
+  <p>Accédez à notre boutique :</p>
+  <ul>
+    <li><a href="https://procryptomancer.gumroad.com/l/exkftp" target="_blank">Pourquoi investir dans la crypto avant 2030</a></li>
+    <li><a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank">Commencer avec 50 $</a></li>
+  </ul>
+</section>
 
-  <section class="hero">
-    <h2>Le futur de la crypto commence ici</h2>
-    <p>Conseils, formations et accompagnement personnalisé.</p>
-  </section>
+<section id="ai">
+  <h2 class="section-title">Section Intelligence Artificielle</h2>
+  <p>Bientôt disponible : formations, outils IA, générateurs de contenu et bots intelligents.</p>
+</section>
 
-  <section id="services">
-    <h2 class="section-title">Nos Services</h2>
-    <ul>
-      <li>Consultation stratégique en crypto</li>
-      <li>Formation pour débutants et experts</li>
-      <li>Support personnalisé</li>
-    </ul>
-  </section>
+<section id="contact">
+  <h2 class="section-title">Nous contacter</h2>
+  <p>Remplissez ce formulaire pour toute demande :</p>
+  <form>
+    <input type="text" placeholder="Nom" required><br><br>
+    <input type="email" placeholder="Email" required><br><br>
+    <textarea placeholder="Votre message" required></textarea><br><br>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
 
-  <section id="crypto">
-    <h2 class="section-title">Marché Crypto en Direct</h2>
-    <div style="text-align: center; margin-bottom: 20px;">
-      <iframe 
-        src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=1&pref_coin_id=1505" 
-        width="100%" 
-        height="468px" 
-        scrolling="auto" 
-        marginwidth="0" 
-        marginheight="0" 
-        frameborder="0" 
-        border="0" 
-        style="border:0; margin:0; padding:0;">
-      </iframe>
-    </div>
+<footer>
+  &copy; 2025 ProCryptomancer. Tous droits réservés.
+</footer>
 
-    <div style="display: flex; justify-content: center; gap: 20px;">
-      <button style="padding: 10px 20px; background-color: #007bff; border: none; color: white; font-weight: bold; border-radius: 5px;">
-        Achat/Vente
-      </button>
-      <button style="padding: 10px 20px; background-color: #6c757d; border: none; color: white; font-weight: bold; border-radius: 5px;">
-        Transférer
-      </button>
-    </div>
-  </section>
-
-  <section id="boutique">
-    <h2 class="section-title">Nos ebooks à découvrir</h2>
-    <p>Accédez à notre boutique :</p>
-    <ul>
-      <li><a href="https://procryptomancer.gumroad.com/l/exkftp" target="_blank">Pourquoi investir dans la crypto avant 2030</a></li>
-      <li><a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank">Commencer avec 50 $</a></li>
-    </ul>
-  </section>
-
-  <section id="ia">
-    <h2 class="section-title">Section Intelligence Artificielle</h2>
-    <p>Bientôt disponible : formations, outils IA, générateurs de contenu et bots intelligents.</p>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Nous contacter</h2>
-    <p>Remplissez ce formulaire pour toute demande :</p>
-    <form>
-      <input type="text" placeholder="Nom" required><br><br>
-      <input type="email" placeholder="Email" required><br><br>
-      <textarea placeholder="Votre message" required></textarea><br><br>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 ProCryptomancer. Tous droits réservés.
-  </footer>
-
-  <script>
-    const translations = {
-      en: {
-        welcome: "Welcome to ProCryptomancer",
-        services: "Services",
-        shop: "Shop",
-        crypto: "Crypto",
-        ai: "AI",
-        contact: "Contact"
-      },
-      fr: {
-        welcome: "Bienvenue sur ProCryptomancer",
-        services: "Services",
-        shop: "Boutique",
-        crypto: "Crypto",
-        ai: "IA",
-        contact: "Contact"
-      }
-    };
-
-    function changeLanguage(lang) {
-      document.getElementById("welcome").innerText = translations[lang].welcome;
-      document.getElementById("services").innerText = translations[lang].services;
-      document.getElementById("shop").innerText = translations[lang].shop;
-      document.getElementById("crypto").innerText = translations[lang].crypto;
-      document.getElementById("ai").innerText = translations[lang].ai;
-      document.getElementById("contact").innerText = translations[lang].contact;
+<script>
+  const translations = {
+    en: {
+      welcome: "Welcome to ProCryptomancer",
+      services: "Services",
+      shop: "Shop",
+      crypto: "Crypto",
+      ai: "AI",
+      contact: "Contact"
+    },
+    fr: {
+      welcome: "Bienvenue sur ProCryptomancer",
+      services: "Services",
+      shop: "Boutique",
+      crypto: "Crypto",
+      ai: "IA",
+      contact: "Contact"
     }
-  </script>
+  };
+
+  function changeLanguage(lang) {
+    document.getElementById("welcome").innerText = translations[lang].welcome;
+    document.getElementById("services").innerText = translations[lang].services;
+    document.getElementById("shop").innerText = translations[lang].shop;
+    document.getElementById("crypto").innerText = translations[lang].crypto;
+    document.getElementById("ai").innerText = translations[lang].ai;
+    document.getElementById("contact").innerText = translations[lang].contact;
+  }
+</script>
 </body>
 </html>
