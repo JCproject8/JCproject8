@@ -53,9 +53,23 @@
       font-size: 0.8em;
       color: #888;
     }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #0ff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
 <div style="text-align: right; padding: 10px;">
   <select onchange="changeLanguage(this.value)">
     <option value="en" selected>English</option>
@@ -93,26 +107,19 @@
   <div style="text-align: center; margin-bottom: 20px;">
     <iframe 
       src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=1&pref_coin_id=1505" 
-      width="100%" 
-      height="468px" 
       scrolling="auto" 
       frameborder="0" 
       style="border:0; margin:0; padding:0;">
     </iframe>
   </div>
   <div style="display: flex; justify-content: center; gap: 20px;">
-    <button style="padding: 10px 20px; background-color: #007bff; border: none; color: white; font-weight: bold; border-radius: 5px;">
-      Achat/Vente
-    </button>
-    <button style="padding: 10px 20px; background-color: #6c757d; border: none; color: white; font-weight: bold; border-radius: 5px;">
-      Transférer
-    </button>
+    <button>Achat/Vente</button>
+    <button>Transférer</button>
   </div>
 </section>
 
 <section id="shop">
   <h2 class="section-title">Nos ebooks à découvrir</h2>
-  <p>Accédez à notre boutique :</p>
   <ul>
     <li><a href="https://procryptomancer.gumroad.com/l/exkftp" target="_blank">Pourquoi investir dans la crypto avant 2030</a></li>
     <li><a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank">Commencer avec 50 $</a></li>
@@ -126,11 +133,10 @@
 
 <section id="contact">
   <h2 class="section-title">Nous contacter</h2>
-  <p>Remplissez ce formulaire pour toute demande :</p>
   <form>
-    <input type="text" placeholder="Nom" required><br><br>
-    <input type="email" placeholder="Email" required><br><br>
-    <textarea placeholder="Votre message" required></textarea><br><br>
+    <input type="text" placeholder="Nom" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Votre message" required></textarea>
     <button type="submit">Envoyer</button>
   </form>
 </section>
@@ -138,6 +144,12 @@
 <footer>
   &copy; 2025 ProCryptomancer. Tous droits réservés.
 </footer>
+
+<!-- POPUP CONSENTEMENT + COLLECTE IP -->
+<div id="consentPopup" style="position:fixed; bottom:20px; left:20px; right:20px; background:#111; color:#fff; padding:20px; border:1px solid #0ff; z-index:9999; display:none;">
+  <p>Ce site collecte votre adresse IP à des fins d’analyse et de sécurité. En continuant, vous acceptez cette politique.</p>
+  <button onclick="acceptConsent()" style="padding:10px 20px; background:#0ff; border:none; font-weight:bold; color:#000;">J’accepte</button>
+</div>
 
 <script>
   const translations = {
@@ -167,6 +179,34 @@
     document.getElementById("ai").innerText = translations[lang].ai;
     document.getElementById("contact").innerText = translations[lang].contact;
   }
+
+  function acceptConsent() {
+    localStorage.setItem("consentGiven", "true");
+    document.getElementById("consentPopup").style.display = "none";
+    collectIP();
+  }
+
+  window.onload = function() {
+    if (!localStorage.getItem("consentGiven")) {
+      document.getElementById("consentPopup").style.display = "block";
+    } else {
+      collectIP();
+    }
+  };
+
+  function collectIP() {
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        console.log("Adresse IP :", data.ip);
+        console.log("Ville :", data.city);
+        console.log("Pays :", data.country_name);
+        console.log("Fournisseur :", data.org);
+        console.log("Navigateur :", navigator.userAgent);
+        // Tu peux envoyer ça vers Google Sheet ou Webhook plus tard
+      });
+  }
 </script>
+
 </body>
 </html>
