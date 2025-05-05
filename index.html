@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProCryptomancer</title>
   <style>
     body {
@@ -56,15 +56,21 @@
   </style>
 </head>
 <body>
+  <div style="text-align: right; padding: 10px;">
+    <select onchange="changeLanguage(this.value)">
+      <option value="en" selected>English</option>
+      <option value="fr">Français</option>
+    </select>
+  </div>
 
   <header>
-    <h1>Bienvenue sur ProCryptomancer</h1>
+    <h1 id="welcome">Welcome to ProCryptomancer</h1>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#boutique">Boutique</a>
-      <a href="#crypto">Crypto</a>
-      <a href="#ia">IA</a>
-      <a href="#contact">Contact</a>
+      <a href="#services" id="services">Services</a>
+      <a href="#boutique" id="shop">Shop</a>
+      <a href="#crypto" id="crypto">Crypto</a>
+      <a href="#ia" id="ai">AI</a>
+      <a href="#contact" id="contact">Contact</a>
     </nav>
   </header>
 
@@ -84,8 +90,28 @@
 
   <section id="crypto">
     <h2 class="section-title">Marché Crypto en Direct</h2>
-    <p>Suivez les prix en temps réel :</p>
-    <iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=5&pref_coin_id=1505"></iframe>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <iframe 
+        src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=1&pref_coin_id=1505" 
+        width="100%" 
+        height="468px" 
+        scrolling="auto" 
+        marginwidth="0" 
+        marginheight="0" 
+        frameborder="0" 
+        border="0" 
+        style="border:0; margin:0; padding:0;">
+      </iframe>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <button style="padding: 10px 20px; background-color: #007bff; border: none; color: white; font-weight: bold; border-radius: 5px;">
+        Achat/Vente
+      </button>
+      <button style="padding: 10px 20px; background-color: #6c757d; border: none; color: white; font-weight: bold; border-radius: 5px;">
+        Transférer
+      </button>
+    </div>
   </section>
 
   <section id="boutique">
@@ -117,5 +143,34 @@
     &copy; 2025 ProCryptomancer. Tous droits réservés.
   </footer>
 
+  <script>
+    const translations = {
+      en: {
+        welcome: "Welcome to ProCryptomancer",
+        services: "Services",
+        shop: "Shop",
+        crypto: "Crypto",
+        ai: "AI",
+        contact: "Contact"
+      },
+      fr: {
+        welcome: "Bienvenue sur ProCryptomancer",
+        services: "Services",
+        shop: "Boutique",
+        crypto: "Crypto",
+        ai: "IA",
+        contact: "Contact"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById("welcome").innerText = translations[lang].welcome;
+      document.getElementById("services").innerText = translations[lang].services;
+      document.getElementById("shop").innerText = translations[lang].shop;
+      document.getElementById("crypto").innerText = translations[lang].crypto;
+      document.getElementById("ai").innerText = translations[lang].ai;
+      document.getElementById("contact").innerText = translations[lang].contact;
+    }
+  </script>
 </body>
 </html>
