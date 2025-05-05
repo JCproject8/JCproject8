@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,122 +7,171 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom, #000000, #0f0f3d);
       color: #ffffff;
+      text-align: center;
     }
 
     header {
-      background-color: #000;
-      padding: 20px;
-      text-align: center;
+      background-color: #000000;
+      padding: 40px 20px;
+      border-bottom: 1px solid #00ff99;
     }
 
-    header img {
-      max-height: 60px;
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+      color: #00ff99;
+      letter-spacing: 1.5px;
     }
 
-    .language-switcher {
-      position: fixed;
+    header p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #bbbbbb;
+    }
+
+    .lang-switch {
+      position: absolute;
       top: 20px;
       right: 20px;
+    }
+
+    .lang-switch select {
       background: #00ff99;
       color: #000;
       border: none;
-      padding: 10px 15px;
+      padding: 8px;
       font-weight: bold;
       border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
     }
 
     section {
-      padding: 40px;
-      text-align: center;
+      padding: 60px 20px;
     }
 
-    h1, h2 {
+    h2 {
       color: #00ff99;
     }
 
-    .button-main {
-      background: #00ff99;
-      color: #000;
+    .button-ebook {
+      background-color: #00ff99;
+      color: #000000;
       border: none;
       padding: 15px 30px;
-      margin-top: 20px;
-      font-size: 18px;
+      font-size: 1.2em;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
-    }    .product-section {
-      margin-top: 60px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 30px;
     }
 
-    .product-image {
-      width: 200px;
-      height: auto;
-      margin-bottom: 20px;
+    .button-ebook:hover {
+      transform: scale(1.05);
+      background-color: #00cc77;
+    }
+
+    .crypto-chart {
+      margin: 60px auto 30px;
+      max-width: 100%;
+    }
+
+    .values {
+      margin-top: 60px;
+      padding: 40px 20px;
+      background-color: #111;
+      border-top: 1px solid #222;
+    }
+
+    .values h3 {
+      color: #00ff99;
+      margin-bottom: 15px;
+    }
+
+    .values ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .values li {
+      margin: 10px 0;
+      font-size: 1.1em;
+      color: #cccccc;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #888888;
+      border-top: 1px solid #222;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      border: none;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <button class="language-switcher" onclick="toggleLanguage()">FR / EN</button>
+
+  <div class="lang-switch">
+    <select onchange="changeLang(this.value)">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
 
   <header>
-    <img src="logo.png" alt="ProCryptomancer Logo" />
+    <h1>ProCryptomancer</h1>
+    <p>Explore le pouvoir de la crypto, de l’IA et des marchés numériques</p>
   </header>
 
-  <section id="intro">
-    <h1 data-en="Welcome to ProCryptomancer" data-fr="Bienvenue sur ProCryptomancer">
-      Welcome to ProCryptomancer
-    </h1>
-    <p data-en="Your gateway to crypto mastery and digital independence."
-       data-fr="Votre portail vers la maîtrise des cryptos et l’indépendance numérique.">
-      Your gateway to crypto mastery and digital independence.
-    </p>
-    <a href="#product" class="button-main" 
-       data-en="Explore the Guide" 
-       data-fr="Découvrir le Guide">
-      Explore the Guide
+  <section>
+    <h2>Pourquoi attendre 2030 ?</h2>
+    <p>Découvre pourquoi des milliers de gens investissent dès maintenant dans les cryptomonnaies. Notre guide te donne les clés pour commencer avec confiance.</p>
+    <a href="https://procryptomancer.gumroad.com/l/exkftp" class="button-ebook" target="_blank">
+      Télécharger l’eBook Crypto
     </a>
   </section>
 
-  <section id="product" class="product-section">
-    <h2 data-en="Get the Ultimate Crypto Guide" 
-        data-fr="Obtenez le Guide Ultime sur la Crypto">
-      Get the Ultimate Crypto Guide
-    </h2>
-    <img src="ebook-cover.jpg" alt="Crypto eBook Cover" class="product-image" />
-    <p data-en="Learn how to invest smartly in crypto with just $50."
-       data-fr="Apprenez à investir intelligemment dans la crypto avec seulement 50 $.">
-      Learn how to invest smartly in crypto with just $50.
-    </p>
-    <a href="https://procryptomancer.gumroad.com/l/exkftp" class="button-main"
-       data-en="Buy Now - $5"
-       data-fr="Acheter maintenant - 5$">
-      Buy Now - $5
-    </a>
-  </section>  <script>
-    let currentLang = "en";
+  <section class="crypto-chart">
+    <h2>Crypto en temps réel</h2>
+    <iframe src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.html?coin_id=bitcoin&currency=usd" title="Bitcoin Chart"></iframe>
+  </section>
 
-    function toggleLanguage() {
-      currentLang = currentLang === "en" ? "fr" : "en";
-      const switcher = document.querySelector(".language-switcher");
-      switcher.innerText = currentLang === "en" ? "FR / EN" : "EN / FR";
+  <section class="values">
+    <h3>Nos valeurs fondamentales</h3>
+    <ul>
+      <li>Respect de l’environnement numérique</li>
+      <li>Technologie libre et accessible à tous</li>
+      <li>Protection des jeunes investisseurs</li>
+      <li>Éducation financière honnête et transparente</li>
+    </ul>
+  </section>
 
-      const elements = document.querySelectorAll("[data-en]");
-      elements.forEach(el => {
-        el.textContent = el.getAttribute("data-" + currentLang);
-      });
+  <footer>
+    © 2025 ProCryptomancer. Tous droits réservés.
+  </footer>
+
+  <script>
+    function changeLang(lang) {
+      if (lang === "en") {
+        alert("La version anglaise est en cours de développement.");
+      } else {
+        location.reload();
+      }
     }
-
-    // Initialisation automatique à l’ouverture
-    window.onload = () => {
-      toggleLanguage(); // passe à fr
-      toggleLanguage(); // revient à en (langue par défaut visible)
-    };
   </script>
+
 </body>
 </html>
