@@ -1,212 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProCryptomancer</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      background: linear-gradient(to bottom, #000000, #0f0f3d);
+      color: #ffffff;
     }
+
     header {
-      background-color: #111;
+      background-color: #000;
       padding: 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+
+    header img {
+      max-height: 60px;
     }
-    nav a {
-      margin: 0 15px;
-      color: cyan;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .hero {
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      text-align: center;
-      color: white;
-    }
-    .section-title {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-      color: #0ff;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      font-size: 0.8em;
-      color: #888;
-    }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #0ff;
+
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00ff99;
       color: #000;
+      border: none;
+      padding: 10px 15px;
       font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
+      z-index: 1000;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #00ff99;
+    }
+
+    .button-main {
+      background: #00ff99;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }    .product-section {
+      margin-top: 60px;
+    }
+
+    .product-image {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
+  <button class="language-switcher" onclick="toggleLanguage()">FR / EN</button>
 
-<div style="text-align: right; padding: 10px;">
-  <select onchange="changeLanguage(this.value)">
-    <option value="en" selected>English</option>
-    <option value="fr">Français</option>
-  </select>
-</div>
+  <header>
+    <img src="logo.png" alt="ProCryptomancer Logo" />
+  </header>
 
-<header>
-  <h1 id="welcome">Welcome to ProCryptomancer</h1>
-  <nav>
-    <a href="#services" id="services">Services</a>
-    <a href="#shop" id="shop">Shop</a>
-    <a href="#crypto" id="crypto">Crypto</a>
-    <a href="#ai" id="ai">AI</a>
-    <a href="#contact" id="contact">Contact</a>
-  </nav>
-</header>
+  <section id="intro">
+    <h1 data-en="Welcome to ProCryptomancer" data-fr="Bienvenue sur ProCryptomancer">
+      Welcome to ProCryptomancer
+    </h1>
+    <p data-en="Your gateway to crypto mastery and digital independence."
+       data-fr="Votre portail vers la maîtrise des cryptos et l’indépendance numérique.">
+      Your gateway to crypto mastery and digital independence.
+    </p>
+    <a href="#product" class="button-main" 
+       data-en="Explore the Guide" 
+       data-fr="Découvrir le Guide">
+      Explore the Guide
+    </a>
+  </section>
 
-<section class="hero">
-  <h2>Le futur de la crypto commence ici</h2>
-  <p>Conseils, formations et accompagnement personnalisé.</p>
-</section>
+  <section id="product" class="product-section">
+    <h2 data-en="Get the Ultimate Crypto Guide" 
+        data-fr="Obtenez le Guide Ultime sur la Crypto">
+      Get the Ultimate Crypto Guide
+    </h2>
+    <img src="ebook-cover.jpg" alt="Crypto eBook Cover" class="product-image" />
+    <p data-en="Learn how to invest smartly in crypto with just $50."
+       data-fr="Apprenez à investir intelligemment dans la crypto avec seulement 50 $.">
+      Learn how to invest smartly in crypto with just $50.
+    </p>
+    <a href="https://procryptomancer.gumroad.com/l/exkftp" class="button-main"
+       data-en="Buy Now - $5"
+       data-fr="Acheter maintenant - 5$">
+      Buy Now - $5
+    </a>
+  </section>  <script>
+    let currentLang = "en";
 
-<section id="services">
-  <h2 class="section-title">Nos Services</h2>
-  <ul>
-    <li>Consultation stratégique en crypto</li>
-    <li>Formation pour débutants et experts</li>
-    <li>Support personnalisé</li>
-  </ul>
-</section>
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "fr" : "en";
+      const switcher = document.querySelector(".language-switcher");
+      switcher.innerText = currentLang === "en" ? "FR / EN" : "EN / FR";
 
-<section id="crypto">
-  <h2 class="section-title">Marché Crypto en Direct</h2>
-  <div style="text-align: center; margin-bottom: 20px;">
-    <iframe 
-      src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=1&pref_coin_id=1505" 
-      scrolling="auto" 
-      frameborder="0" 
-      style="border:0; margin:0; padding:0;">
-    </iframe>
-  </div>
-  <div style="display: flex; justify-content: center; gap: 20px;">
-    <button>Achat/Vente</button>
-    <button>Transférer</button>
-  </div>
-</section>
-
-<section id="shop">
-  <h2 class="section-title">Nos ebooks à découvrir</h2>
-  <ul>
-    <li><a href="https://procryptomancer.gumroad.com/l/exkftp" target="_blank">Pourquoi investir dans la crypto avant 2030</a></li>
-    <li><a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank">Commencer avec 50 $</a></li>
-  </ul>
-</section>
-
-<section id="ai">
-  <h2 class="section-title">Section Intelligence Artificielle</h2>
-  <p>Bientôt disponible : formations, outils IA, générateurs de contenu et bots intelligents.</p>
-</section>
-
-<section id="contact">
-  <h2 class="section-title">Nous contacter</h2>
-  <form>
-    <input type="text" placeholder="Nom" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-</section>
-
-<footer>
-  &copy; 2025 ProCryptomancer. Tous droits réservés.
-</footer>
-
-<!-- POPUP CONSENTEMENT + COLLECTE IP -->
-<div id="consentPopup" style="position:fixed; bottom:20px; left:20px; right:20px; background:#111; color:#fff; padding:20px; border:1px solid #0ff; z-index:9999; display:none;">
-  <p>Ce site collecte votre adresse IP à des fins d’analyse et de sécurité. En continuant, vous acceptez cette politique.</p>
-  <button onclick="acceptConsent()" style="padding:10px 20px; background:#0ff; border:none; font-weight:bold; color:#000;">J’accepte</button>
-</div>
-
-<script>
-  const translations = {
-    en: {
-      welcome: "Welcome to ProCryptomancer",
-      services: "Services",
-      shop: "Shop",
-      crypto: "Crypto",
-      ai: "AI",
-      contact: "Contact"
-    },
-    fr: {
-      welcome: "Bienvenue sur ProCryptomancer",
-      services: "Services",
-      shop: "Boutique",
-      crypto: "Crypto",
-      ai: "IA",
-      contact: "Contact"
-    }
-  };
-
-  function changeLanguage(lang) {
-    document.getElementById("welcome").innerText = translations[lang].welcome;
-    document.getElementById("services").innerText = translations[lang].services;
-    document.getElementById("shop").innerText = translations[lang].shop;
-    document.getElementById("crypto").innerText = translations[lang].crypto;
-    document.getElementById("ai").innerText = translations[lang].ai;
-    document.getElementById("contact").innerText = translations[lang].contact;
-  }
-
-  function acceptConsent() {
-    localStorage.setItem("consentGiven", "true");
-    document.getElementById("consentPopup").style.display = "none";
-    collectIP();
-  }
-
-  window.onload = function() {
-    if (!localStorage.getItem("consentGiven")) {
-      document.getElementById("consentPopup").style.display = "block";
-    } else {
-      collectIP();
-    }
-  };
-
-  function collectIP() {
-    fetch("https://ipapi.co/json/")
-      .then(response => response.json())
-      .then(data => {
-        console.log("Adresse IP :", data.ip);
-        console.log("Ville :", data.city);
-        console.log("Pays :", data.country_name);
-        console.log("Fournisseur :", data.org);
-        console.log("Navigateur :", navigator.userAgent);
-        //
+      const elements = document.querySelectorAll("[data-en]");
+      elements.forEach(el => {
+        el.textContent = el.getAttribute("data-" + currentLang);
       });
-  }
-</script>
+    }
 
+    // Initialisation automatique à l’ouverture
+    window.onload = () => {
+      toggleLanguage(); // passe à fr
+      toggleLanguage(); // revient à en (langue par défaut visible)
+    };
+  </script>
 </body>
 </html>
