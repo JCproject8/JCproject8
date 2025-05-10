@@ -22,8 +22,15 @@
     header h1 {
       font-size: 2.8em;
       margin: 0;
-      color: #00ff99;
       letter-spacing: 1.5px;
+    }
+
+    .logo-pro {
+      color: #00ff99;
+    }
+
+    .logo-cryptomancer {
+      color: white;
     }
 
     header p {
@@ -36,6 +43,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
+      z-index: 1000;
     }
 
     .lang-switch select {
@@ -75,6 +83,11 @@
       border-radius: 8px;
       display: inline-block;
       margin-top: 20px;
+      transition: 0.3s ease;
+    }
+
+    .cta:hover {
+      background-color: #00cc77;
     }
 
     footer {
@@ -97,6 +110,17 @@
       font-size: 0.9em;
       z-index: 9999;
     }
+
+    .section-crypto, .section-ia, .section-shop {
+      border-top: 1px dashed #00ff99;
+      margin-top: 40px;
+      padding-top: 40px;
+    }
+
+    .highlight {
+      color: #00ff99;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -109,8 +133,10 @@
   </div>
 
   <header>
-    <h1><span style="color: #00ff99;">pro</span><span style="color: white;">cryptomancer.com</span></h1>
-    <p>Explore le futur de la crypto, de l’IA et de la bourse.</p>
+    <h1>
+      <span class="logo-pro">pro</span><span class="logo-cryptomancer">cryptomancer.com</span>
+    </h1>
+    <p>Explore le futur de la <span class="highlight">crypto</span>, de l’<span class="highlight">IA</span> et de la <span class="highlight">bourse</span>.</p>
   </header>
 
   <div class="ticker" id="ticker">
@@ -119,21 +145,31 @@
 
   <section class="section">
     <h2>Notre eBook phare</h2>
-    <p>Découvrez pourquoi investir en crypto avant 2030 est une opportunité historique.</p>
-    <a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank" class="cta">Télécharger l’eBook</a>
+    <p>Pourquoi investir en crypto avant 2030 ? Un guide pour les visionnaires.</p>
+    <a href="https://creatrix45.gumroad.com/l/tjjpj" target="_blank" class="cta">Télécharger maintenant</a>
   </section>
 
-  <section class="section">
-    <h2>Boutique à venir</h2>
-    <p>Bientôt disponible : astuces staking, coaching crypto, et plus encore.</p>
+  <section class="section section-crypto">
+    <h2>Crypto & Bourse en direct</h2>
+    <p>Suivez les valeurs en temps réel et apprenez à faire croître votre portefeuille.</p>
+  </section>
+
+  <section class="section section-shop">
+    <h2>Astuces & Boutique</h2>
+    <p>Bientôt en ligne : coaching crypto, staking intelligent, et mini-guides PDF.</p>
+  </section>
+
+  <section class="section section-ia">
+    <h2>Nova IA (bêta)</h2>
+    <p>Notre IA vous répondra bientôt sur le staking, la sécurité et la croissance crypto.</p>
   </section>
 
   <footer>
-    &copy; 2025 ProCryptomancer. Tous droits réservés.
+    &copy; 2025 ProCryptomancer. Tous droits réservés. | Version 1.0
   </footer>
 
   <div class="popup" id="popup">
-    Ce site utilise des cookies et collecte certaines données techniques pour améliorer votre expérience. En continuant, vous acceptez notre politique.
+    Ce site utilise des cookies et collecte certaines données techniques (IP, navigateur) pour optimiser l’expérience utilisateur. En continuant, vous acceptez cela.
   </div>
 
   <script>
@@ -141,7 +177,6 @@
       alert("Le changement de langue sera bientôt disponible : " + lang);
     }
 
-    // Simuler un ticker dynamique
     const ticker = document.getElementById("ticker");
     const cryptos = [
       "BTC: $67,403", "ETH: $3,215", "SOL: $145", "DOT: $7.80", "ATOM: $8.25", "AVAX: $35.10"
